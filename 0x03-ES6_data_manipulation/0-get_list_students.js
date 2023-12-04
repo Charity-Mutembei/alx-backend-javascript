@@ -1,5 +1,5 @@
 export default function getListStudents () {
-  //check if the input is an array
+  // check if the input is an array
   return [
     { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
     { id: 2, firstName: 'James', location: 'Columbia' },
