@@ -9,6 +9,6 @@ function getListStudents () {
 }
 // function to retrieve list of students
 // array of student objects
-// each student object has properties id, firstName, and location
+// each! student object has properties id, firstName, and location
 
 export default getListStudents;
