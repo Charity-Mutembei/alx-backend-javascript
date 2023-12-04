@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ES6 Data Manipulation",
   "main": "0-get_list_students.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
