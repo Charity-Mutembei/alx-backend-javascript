@@ -34,3 +34,13 @@ interface Teachers {
 interface Directors extends Teachers {
     numberOfReports: number;
 }
+
+interface PrintTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+
+const printTeacher: PrintTeacherFunction = (firstName, lastName) => {
+    const firstLetter = firstName.charAt(0).toUpperCase();
+    const fullName = `${firstLetter}. ${lastName}`;
+    return fullName;
+};
