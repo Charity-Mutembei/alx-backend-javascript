@@ -1,6 +1,7 @@
 const express = require('express');
-
+// express 
 const app = express();
+// local host 
 const port = 7865;
 
 app.use(express.json());

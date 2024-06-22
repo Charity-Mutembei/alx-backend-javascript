@@ -1,5 +1,7 @@
 const request = require("request");
+// mocha 
 const { describe, it } = require("mocha");
+// chai 
 const expect = require("chai").expect;
 
 describe("Index page", function () {
@@ -34,7 +36,7 @@ describe("Index page", function () {
 
 describe("Cart page", function () {
   it("code for correct url", function (done) {
-    request.get("http://localhost:7865/cart/#1", function (err, res, body) {
+    request.get("http://localhost:7865/cart/12", function (err, res, body) {
       if (err) {
         console.error(err);
         done(err);
@@ -47,14 +49,14 @@ describe("Cart page", function () {
   });
 
   it("correct url content", function (done) {
-    request.get("http://localhost:7865/cart/#1", function (err, res, body) {
+    request.get("http://localhost:7865/cart/12", function (err, res, body) {
       if (err) {
         console.error(err);
         done(err);
         return;
       }
 
-      expect(body).to.contain("Payment methods #1");
+      expect(body).to.contain("Payment methods for cart 12");
       done();
     });
   });
