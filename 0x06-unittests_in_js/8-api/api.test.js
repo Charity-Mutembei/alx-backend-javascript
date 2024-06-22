@@ -1,6 +1,6 @@
-const expect = require("chai").expect;
 const request = require("request");
 const { describe, it } = require("mocha");
+const expect = require("chai").expect;
 
 describe("Index page", function () {
   const options = {
@@ -9,22 +9,22 @@ describe("Index page", function () {
   };
 
   it("status code", function (done) {
-    request(options, function (res) {
-      expect(res.statusCode).to.equal(200);
+    request(options, function (error, response, body) {
+      expect(response.statusCode).to.equal(200);
       done();
     });
   });
 
   it("correct content", function (done) {
-    request(options, function (body) {
+    request(options, function (error, response, body) {
       expect(body).to.contain("Welcome to the payment system");
       done();
     });
   });
 
   it("content length", function (done) {
-    request(options, function (res) {
-      expect(res.headers["content-length"]).to.equal("29");
+    request(options, function (error, response, body) {
+      expect(response.headers["content-length"]).to.equal("29");
       done();
     });
   });
