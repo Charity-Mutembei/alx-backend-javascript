@@ -8,7 +8,7 @@ describe("sendPaymentRequestToApi", function() {
     it("was Utils.calculateNumber called once", function() {
 	const spy = sinon.spy(Utils, "calculateNumber");
 
-	sendPaymentRequestToApi(100, 20);
+	sendPaymentRequestToApi(20, 100);
 
 	assert(spy.calledOnce);
 	spy.restore();
