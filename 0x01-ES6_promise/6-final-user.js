@@ -4,15 +4,15 @@ import uploadPhoto from './5-photo-reject';
 export default async function handleProfileSignup(firstName, lastName, fileName) {
   const responseGotten = [];
   try {
-    const photo = await uploadPhoto(fileName);
-    responseGotten.push({ status: 'success', value: photo });
+    const providedPhoto = await uploadPhoto(fileName);
+    responseGotten.push({ status: 'success', value: providedPhoto });
   } catch (error) {
     responseGotten.push({ status: 'failed', value: error.toString() });
   }
 
   try {
-    const user = await signUpUser(firstName, lastName);
-    responseGotten.push({ status: 'success', value: user });
+    const userSigned = await signUpUser(firstName, lastName);
+    responseGotten.push({ status: 'success', value: userSigned });
   } catch (error) {
     responseGotten.push({ status: 'failed', value: error.toString() });
   }
