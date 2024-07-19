@@ -1,11 +1,9 @@
-export default function getResponseFromAPI() {
-  const response = new Promise((resolve, reject) => {
-    resolve({
-      status: 200,
-    });
-    reject(Error('Failure'));
-    return response;
+function getResponseFromAPI() {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+          resolve("API response");
+      }, 1000);
   });
-
-  return response;
 }
+
+export default getResponseFromAPI;
