@@ -1,3 +1,1 @@
-# alx-backend-javascript
- All things ALX Backend
- Revising Part 2!
+# ES6 Basics
