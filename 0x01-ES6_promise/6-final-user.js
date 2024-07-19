@@ -22,4 +22,3 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
         value: determineValue(result)
       })));
 }
-
