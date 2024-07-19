@@ -1,21 +1,25 @@
+// Import the required functions
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
-export default async function handleProfileSignup(firstName, lastName, fileName) {
-  const response = [];
-  try {
-    const user = await signUpUser(firstName, lastName);
-    response.push({ status: 'success', value: user });
-  } catch (error) {
-    response.push({ status: 'failed', value: error.toString() });
+export default function handleProfileSignup(firstName, lastName, fileName) {
+  // Call both functions with the provided arguments
+  const signUpPromise = signUpUser(firstName, lastName);
+  const photoUploadPromise = uploadPhoto(fileName);
+
+  // Define a named function for determining the value
+  function determineValue(result) {
+    if (result.status === 'fulfilled') {
+      return result.value;
+    }
+      return result.reason;
+
   }
 
-  try {
-    const photo = await uploadPhoto(fileName);
-    response.push({ status: 'success', value: photo });
-  } catch (error) {
-    response.push({ status: 'failed', value: error.toString() });
-  }
-
-  return response;
+  return Promise.allSettled([signUpPromise, photoUploadPromise])
+    .then((results) => results.map((result) => ({
+        status: result.status,
+        value: determineValue(result)
+      })));
 }
+
